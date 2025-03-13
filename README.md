@@ -23,3 +23,5 @@ Será utilizado o software Supremica para a implementação dos autômatos.
 ## Funcionalidades
 - Controle de robôs para carga e descarga das caixas de insumos
 - Substituição temporária de um robô em caso de falha
+
+## Desenvolvimento
