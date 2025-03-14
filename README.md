@@ -5,8 +5,8 @@ Este repositório é referente ao Projeto 01 da disciplina Sistemas a Eventos Di
 ---
 
 ## Equipe
-- Arthur de Queiroz Tavares Borges Mesquita
-- Ivan da Silva Filho
+- Arthur de Queiroz Tavares Borges Mesquita (120110246)
+- Ivan da Silva Filho (120110348)
 - Jayne Emilly Silva de Melo (121210548)
 
 ---
