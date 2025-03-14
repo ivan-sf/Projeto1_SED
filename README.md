@@ -82,4 +82,4 @@ O sistema em questão faz uso de autômatos finitos, que são os robôs, o contr
 ---
 
 ## Vídeo de apresentação
-Link de acesso ao vídeo no YouTube do ArthurzinhoGameplays2002: 
+Link de acesso ao vídeo no YouTube: https://youtu.be/NQyQzlD8Agg
