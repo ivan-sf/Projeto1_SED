@@ -1,0 +1,4983 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<Module xmlns="http://waters.sourceforge.net/xsd/module" xmlns:B="http://waters.sourceforge.net/xsd/base" Name="Trabalho1_SED_VF2">
+<EventDeclList>
+<EventDecl Kind="CONTROLLABLE" Name="move_m1"/>
+<EventDecl Kind="CONTROLLABLE" Name="move_m2"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="req_m1"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="req_m2"/>
+<EventDecl Kind="CONTROLLABLE" Name="unload_m1"/>
+<EventDecl Kind="CONTROLLABLE" Name="unload_m2"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="broken_r1"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="repair_r1"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="req_m3"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="req_m4"/>
+<EventDecl Kind="CONTROLLABLE" Name="move_m3"/>
+<EventDecl Kind="CONTROLLABLE" Name="move_m4"/>
+<EventDecl Kind="CONTROLLABLE" Name="unload_m3"/>
+<EventDecl Kind="CONTROLLABLE" Name="unload_m4"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="broken_r2"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="repair_r2"/>
+<EventDecl Kind="PROPOSITION" Name=":accepting"/>
+<EventDecl Kind="PROPOSITION" Name=":forbidden"/>
+</EventDeclList>
+<ComponentList>
+<SimpleComponent Kind="PLANT" Name="R1">
+<Graph>
+<NodeList>
+<SimpleNode Name="BE">
+<PointGeometry>
+<Point X="80" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M1">
+<PointGeometry>
+<Point X="352" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M2">
+<PointGeometry>
+<Point X="352" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="-80" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-38" Y="3"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="quebrado">
+<PointGeometry>
+<Point X="464" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="BE" Target="M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="80" Y="208"/>
+</StartPointGeometry>
+</Edge>
+<Edge Source="BE" Target="M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-48" Y="9"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="Idle" Target="BE">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+</LabelBlock>
+<EndPointGeometry>
+<Point X="80" Y="208"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="M1" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="58" Y="33"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M2" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="95" Y="290"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M1" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-1" Y="-25"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="BE" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="14" Y="-23"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="M2" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-69" Y="-7"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="quebrado" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="175" Y="433"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="quebrado" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="31" Y="-17"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="R2">
+<Graph>
+<NodeList>
+<SimpleNode Name="BE">
+<PointGeometry>
+<Point X="80" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M3">
+<PointGeometry>
+<Point X="352" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M4">
+<PointGeometry>
+<Point X="352" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="-80" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-38" Y="3"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="quebrado">
+<PointGeometry>
+<Point X="416" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="BE" Target="M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="80" Y="208"/>
+</StartPointGeometry>
+</Edge>
+<Edge Source="BE" Target="M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="-26" Y="11"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="M3" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="58" Y="33"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M4" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="95" Y="290"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M3" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="-9"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="M4" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-62" Y="-18"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="BE" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+</LabelBlock>
+</Edge>
+<Edge Source="quebrado" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="193" Y="468"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="quebrado" Target="quebrado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="482" Y="185"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle" Target="BE">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="req_m3"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="-1" Y="189"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="80" Y="208"/>
+</EndPointGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="M1">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="240" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-1" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M1">
+<PointGeometry>
+<Point X="352" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="Idle" Target="M1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-20" Y="-28"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="296" Y="192"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M1" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="352" Y="208"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="296" Y="221"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="197" Y="238"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="M2">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="240" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M2">
+<PointGeometry>
+<Point X="352" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="Idle" Target="M2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-25" Y="-25"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="296" Y="192"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M2" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="352" Y="208"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="296" Y="221"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="197" Y="238"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="M3">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="240" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M3">
+<PointGeometry>
+<Point X="352" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="Idle" Target="M3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="-24" Y="-27"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="296" Y="192"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M3" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="broken_r2"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="352" Y="208"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="296" Y="221"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<SimpleIdentifier Name="broken_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="197" Y="238"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="M4">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="Idle">
+<PointGeometry>
+<Point X="240" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M4">
+<PointGeometry>
+<Point X="352" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="Idle" Target="M4">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="-23" Y="-28"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="296" Y="192"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M4" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<SimpleIdentifier Name="repair_r2"/>
+<SimpleIdentifier Name="broken_r2"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="352" Y="208"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="296" Y="221"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle" Target="Idle">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<SimpleIdentifier Name="broken_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="197" Y="238"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="R3">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="Parado">
+<PointGeometry>
+<Point X="224" Y="224"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="Idle1">
+<PointGeometry>
+<Point X="384" Y="128"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="Idle2">
+<PointGeometry>
+<Point X="384" Y="368"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="BE1">
+<PointGeometry>
+<Point X="512" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M1">
+<PointGeometry>
+<Point X="672" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M2">
+<PointGeometry>
+<Point X="672" Y="160"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="BE2">
+<PointGeometry>
+<Point X="528" Y="336"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M3">
+<PointGeometry>
+<Point X="672" Y="336"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="M4">
+<PointGeometry>
+<Point X="672" Y="432"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="Parado" Target="Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-26" Y="-28"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="293" Y="158"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Parado" Target="Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-32" Y="16"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="319" Y="280"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Parado" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="-55" Y="-57"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="114" Y="232"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle2" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="289" Y="312"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle1" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="315" Y="194"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle1" Target="BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+</LabelBlock>
+</Edge>
+<Edge Source="BE1" Target="M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="581" Y="66"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M1" Target="Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="505" Y="21"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M2" Target="Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="516" Y="214"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="BE1" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="306" Y="-58"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M1" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="285" Y="-93"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M2" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="354" Y="72"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle2" Target="BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+</LabelBlock>
+</Edge>
+<Edge Source="BE2" Target="M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+</LabelBlock>
+</Edge>
+<Edge Source="BE2" Target="M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="528" Y="336"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="615" Y="374"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M3" Target="Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="515" Y="287"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M4" Target="Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="531" Y="494"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M4" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="414" Y="692"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="BE2" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="439" Y="600"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M3" Target="Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="437" Y="524"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle1" Target="Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="-12" Y="5"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="388" Y="215"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="BE1" Target="BE1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="19" Y="-47"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="542" Y="142"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M1" Target="M1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="15" Y="-35"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="M2" Target="M2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<SimpleIdentifier Name="unload_m4"/>
+<SimpleIdentifier Name="req_m3"/>
+<SimpleIdentifier Name="req_m4"/>
+<SimpleIdentifier Name="move_m3"/>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="8" Y="0"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="729" Y="130"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="Idle2" Target="Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-8" Y="2"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="378" Y="446"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="BE2" Target="BE2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-33" Y="6"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="387"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="M3" Target="M3">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="12" Y="-20"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="M4" Target="M4">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<SimpleIdentifier Name="unload_m2"/>
+<SimpleIdentifier Name="move_m1"/>
+<SimpleIdentifier Name="move_m2"/>
+<SimpleIdentifier Name="req_m1"/>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="9" Y="17"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="BE1" Target="M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-21" Y="9"/>
+</LabelGeometry>
+</LabelBlock>
+<StartPointGeometry>
+<Point X="512" Y="80"/>
+</StartPointGeometry>
+<SplineGeometry>
+<Point X="543" Y="178"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="ctrl_r1">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="528" Y="480"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<PointGeometry>
+<Point X="656" Y="400"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S2">
+<PointGeometry>
+<Point X="400" Y="384"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3">
+<PointGeometry>
+<Point X="544" Y="592"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-8" Y="8"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="584" Y="426"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-15" Y="15"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="614" Y="467"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="-7"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="479" Y="397"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="-38" Y="13"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="443" Y="419"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="S3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="6" Y="-6"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="531"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="7" Y="-9"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="494" Y="529"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="522" Y="344"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="532" Y="309"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="392" Y="534"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="16" Y="-13"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="410" Y="503"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="ctrl_r2">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="624" Y="480"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<PointGeometry>
+<Point X="752" Y="400"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S2">
+<PointGeometry>
+<Point X="496" Y="384"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3">
+<PointGeometry>
+<Point X="640" Y="592"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="-10" Y="8"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="-15" Y="15"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="715" Y="470"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="17" Y="0"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="405"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-16" Y="25"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="528" Y="412"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="S3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="-8"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="683" Y="542"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="7" Y="-7"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="608" Y="538"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-16" Y="5"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="615" Y="352"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="622" Y="314"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="-47" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="468" Y="555"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="-51" Y="7"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="524" Y="515"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SUPERVISOR" Name="min(sup(ctrl_r1||ctrl_r2||M1||M2||M3||M4||R1||R2||R3))">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="470" Y="480"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="543" Y="388"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="395" Y="574"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="246" Y="437"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="675" Y="284"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="199" Y="456"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="492" Y="681"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="599" Y="237"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="478" Y="729"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="658" Y="448"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="701" Y="419"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="328" Y="692"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="434" Y="405"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="844" Y="369"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="113" Y="518"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="650" Y="621"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="759" Y="278"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="460" Y="856"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="448" Y="303"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="462" Y="257"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="271" Y="732"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="268" Y="290"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="566" Y="141"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="97" Y="601"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="486" Y="527"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="468" Y="110"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="360" Y="853"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="542" Y="701"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="634" Y="210"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="534" Y="752"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="696" Y="629"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="793" Y="260"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="517" Y="870"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="531" Y="545"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="498" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="411" Y="895"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="287" Y="483"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="660" Y="319"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="244" Y="508"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="480" Y="441"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="819" Y="405"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="165" Y="575"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="291" Y="332"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="565" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="147" Y="648"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="396" Y="308"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="401" Y="257"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="246" Y="707"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="219" Y="289"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="513" Y="148"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="66" Y="583"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="443" Y="529"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="403" Y="120"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="345" Y="825"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="488" Y="560"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="432" Y="95"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="395" Y="863"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="243" Y="331"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="503" Y="184"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="112" Y="640"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="684" Y="491"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="730" Y="468"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="313" Y="654"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="440" Y="440"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="867" Y="418"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="96" Y="488"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="667" Y="665"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="791" Y="324"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="437" Y="815"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="714" Y="674"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="826" Y="304"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="503" Y="832"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="522" Y="475"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="844" Y="456"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="139" Y="548"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="526" Y="596"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="419" Y="389"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="587" Y="500"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="515" Y="430"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2" Target="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="606" Y="284"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2" Target="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="610" Y="345"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="472" Y="301"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="655" Y="424"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="423" Y="529"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="464" Y="682"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="306" Y="551"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1" Target="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="300" Y="647"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1" Target="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="343" Y="621"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="350" Y="452"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="386" Y="391"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado" Target="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="204" Y="349"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado" Target="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="330" Y="427"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="568" Y="355"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="618" Y="319"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4" Target="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="598" Y="201"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4" Target="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="795" Y="346"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="279" Y="517"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="203" Y="433"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1" Target="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="94" Y="509"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1" Target="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="120" Y="456"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="474" Y="588"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="543" Y="542"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado" Target="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="462" Y="614"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado" Target="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="588" Y="689"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="562" Y="363"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="302"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3" Target="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="494" Y="159"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3" Target="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="709" Y="268"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="428" Y="667"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="485" Y="718"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1" Target="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="400" Y="792"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1" Target="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="456" Y="788"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="569" Y="456"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="534" Y="523"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado" Target="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="692" Y="545"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado" Target="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="575" Y="438"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="635" Y="393"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="693" Y="432"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2" Target="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="768" Y="325"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2" Target="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="380" Y="586"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2" Target="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="427" Y="801"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2" Target="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="232" Y="648"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="328" Y="404"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="304" Y="425"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="550" Y="417"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="574" Y="400"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4" Target="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="779" Y="321"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="772" Y="408"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="793" Y="384"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="155" Y="458"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="131" Y="477"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2" Target="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="215" Y="596"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="578" Y="661"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="578" Y="698"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="664" Y="540"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="698" Y="527"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3" Target="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="692" Y="237"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="746" Y="337"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="485" Y="789"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="472" Y="815"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2" Target="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="387" Y="800"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="455" Y="385"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="406" Y="433"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado" Target="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="499" Y="419"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado" Target="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="361" Y="298"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="509" Y="307"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="452" Y="267"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2" Target="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="479" Y="143"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2" Target="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="520" Y="199"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="342" Y="604"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="324" Y="671"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1" Target="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="317" Y="854"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1" Target="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="188" Y="716"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="244" Y="348"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="201" Y="356"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="349" Y="273"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="355" Y="240"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4" Target="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="646" Y="181"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="523" Y="177"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="164" Y="531"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="120" Y="527"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1" Target="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="163" Y="691"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="481" Y="612"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="471" Y="640"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="452" Y="414"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="454" Y="391"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3" Target="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="563" Y="126"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="449" Y="187"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="460" Y="163"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="412" Y="779"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="409" Y="810"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1" Target="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="292" Y="820"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="566" Y="550"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="523" Y="704"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado" Target="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="526" Y="644"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado" Target="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="648" Y="714"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="567" Y="334"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2" Target="S0.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3.S2.S0.Idle.Idle.M3.Idle.Idle.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="626" Y="205"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2" Target="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="549" Y="108"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2" Target="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="762" Y="218"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="509" Y="763"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="554" Y="744"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1" Target="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="468" Y="833"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1" Target="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="534" Y="813"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="724" Y="529"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado" Target="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="688" Y="634"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="635" Y="676"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="640" Y="720"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="740" Y="343"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2" Target="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="791" Y="250"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2" Target="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="734" Y="204"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2" Target="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="493" Y="897"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="555" Y="809"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="544" Y="838"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="504" Y="395"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado" Target="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="517" Y="544"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="555" Y="633"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="559" Y="665"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="467" Y="167"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2" Target="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="478" Y="64"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2" Target="S0.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2.S2.S1.Idle.Idle.M3.Idle.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="586" Y="107"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1" Target="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="374" Y="909"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="477" Y="822"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="494" Y="867"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S0.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S0.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2.S2.S2.Idle.Idle.Idle.Idle.Idle.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="410" Y="425"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="254" Y="455"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado" Target="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="248" Y="401"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado" Target="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="404" Y="491"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="576" Y="399"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2" Target="S0.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4.S2.S0.Idle.Idle.Idle.M4.Idle.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="681" Y="292"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2" Target="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="248"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2" Target="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="768" Y="392"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="200" Y="482"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="253" Y="496"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1" Target="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="165" Y="592"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1" Target="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="173" Y="528"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="601" Y="419"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado" Target="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="456" Y="411"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="381" Y="467"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="356" Y="485"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="755" Y="430"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2" Target="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="858" Y="386"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2" Target="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="755" Y="359"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2" Target="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="112" Y="553"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="220" Y="540"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="190" Y="547"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="368" Y="278"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado" Target="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="268" Y="296"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="278" Y="402"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="240" Y="411"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="517" Y="230"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2" Target="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="580" Y="137"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2" Target="S0.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2.S2.S3.Idle.Idle.Idle.M4.Idle.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="626" Y="231"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1" Target="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="91" Y="651"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="212" Y="581"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="377" Y="438"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado" Target="S0.S0.M1.Idle.Idle.Idle.M1.Idle.Parado.S0.S2.M1.Idle.Idle.Idle.M1.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="415" Y="294"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado" Target="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="395" Y="465"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado" Target="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="303" Y="304"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2" Target="S0.S0.M1.Idle.Idle.Idle.M1.quebrado.Idle2.S0.S2.M1.Idle.Idle.Idle.M1.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="425" Y="233"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="382" Y="268"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2" Target="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="403" Y="151"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2" Target="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="440" Y="198"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="336" Y="594"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1" Target="S0.S0.M1.Idle.Idle.Idle.quebrado.Idle.M1.S0.S2.M1.Idle.Idle.Idle.quebrado.Idle.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="238" Y="741"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1" Target="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="288" Y="826"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1" Target="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="153" Y="699"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="175" Y="358"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado" Target="S0.S0.M1.Idle.Idle.M4.M1.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="226" Y="265"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="289" Y="272"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="288" Y="241"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4" Target="S0.S0.M1.Idle.Idle.M4.M1.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="546" Y="110"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="446" Y="205"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="445" Y="176"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="132" Y="512"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1" Target="S0.S0.M1.Idle.Idle.M4.quebrado.M4.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="52" Y="603"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1" Target="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="115" Y="671"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="451" Y="643"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado" Target="S0.S0.M1.Idle.M3.Idle.M1.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="462" Y="535"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="399" Y="417"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="389" Y="384"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3" Target="S0.S0.M1.Idle.M3.Idle.M1.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="424" Y="74"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="374" Y="197"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="381" Y="168"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="405" Y="761"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1" Target="S0.S0.M1.Idle.M3.Idle.quebrado.M3.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="331" Y="861"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1" Target="S1.S0.M1.Idle.Idle.Idle.quebrado.Idle.BE1.S1.S2.M1.Idle.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="270" Y="788"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="520" Y="675"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado" Target="S0.S1.M1.Idle.M3.Idle.M1.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="519" Y="568"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="420" Y="407"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.BE.Parado" Target="S1.S0.M1.Idle.M3.Idle.BE.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="462" Y="559"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2" Target="S0.S1.M1.Idle.M3.Idle.M1.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="460" Y="49"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="419" Y="184"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.BE.quebrado.BE2" Target="S1.S0.M1.Idle.M3.Idle.BE.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="400" Y="77"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="473" Y="806"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1" Target="S0.S1.M1.Idle.M3.Idle.quebrado.BE.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="394" Y="908"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S1.M1.Idle.M3.Idle.quebrado.BE.BE1" Target="S1.S0.M1.Idle.M3.Idle.quebrado.M3.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="349" Y="875"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="217" Y="414"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado" Target="S0.S3.M1.Idle.Idle.M4.M1.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="252" Y="320"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado" Target="S1.S0.M1.Idle.Idle.Idle.BE.quebrado.Idle2.S1.S2.M1.Idle.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="294" Y="256"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.BE.Parado" Target="S1.S0.M1.Idle.Idle.M4.BE.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="206" Y="298"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2" Target="S0.S3.M1.Idle.Idle.M4.M1.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="538" Y="162"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2" Target="S1.S0.M1.Idle.Idle.Idle.BE.Idle.Parado.S1.S2.M1.Idle.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="440" Y="230"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.BE.quebrado.BE2" Target="S1.S0.M1.Idle.Idle.M4.BE.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="507" Y="146"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="190" Y="580"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1" Target="S0.S3.M1.Idle.Idle.M4.quebrado.BE.M1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="109" Y="665"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1.S3.M1.Idle.Idle.M4.quebrado.BE.BE1" Target="S1.S0.M1.Idle.Idle.M4.quebrado.M4.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="53" Y="624"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado" Target="S0.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S0.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S0.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1.S2.S2.Idle.Idle.Idle.Idle.quebrado.Idle.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="552" Y="562"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado" Target="S0.S0.Idle.M2.Idle.Idle.M2.Idle.Parado.S0.S2.Idle.M2.Idle.Idle.M2.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="685" Y="474"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado" Target="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="729" Y="596"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado" Target="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="617" Y="492"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2" Target="S0.S0.Idle.M2.Idle.Idle.M2.quebrado.Idle2.S0.S2.Idle.M2.Idle.Idle.M2.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="738" Y="442"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="728" Y="492"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2" Target="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="808" Y="383"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2" Target="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="810" Y="476"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1" Target="S0.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S0.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S0.Idle.Idle.Idle.Idle.Idle.Idle.Parado.S2.S2.Idle.Idle.Idle.Idle.Idle.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="378" Y="565"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1" Target="S0.S0.Idle.M2.Idle.Idle.quebrado.Idle.M2.S0.S2.Idle.M2.Idle.Idle.quebrado.Idle.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="309" Y="685"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1" Target="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="412" Y="751"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1" Target="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="req_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="200" Y="616"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado" Target="S0.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1.S2.S0.Idle.Idle.Idle.M4.quebrado.M4.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="303" Y="442"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado" Target="S0.S0.Idle.M2.Idle.M4.M2.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="426" Y="415"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="569" Y="446"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="598" Y="432"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4" Target="S0.S0.Idle.M2.Idle.M4.M2.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="891" Y="387"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="802" Y="467"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="826" Y="449"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1" Target="S0.S0.Idle.Idle.Idle.M4.Idle.M4.Parado.S2.S0.Idle.Idle.Idle.M4.Idle.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="145" Y="441"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1" Target="S0.S0.Idle.M2.Idle.M4.quebrado.M4.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="73" Y="499"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1" Target="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="194" Y="558"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado" Target="S0.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1.S2.S0.Idle.Idle.M3.Idle.quebrado.M3.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="583" Y="722"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado" Target="S0.S0.Idle.M2.M3.Idle.M2.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="671" Y="657"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="692" Y="592"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="736" Y="585"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3" Target="S0.S0.Idle.M2.M3.Idle.M2.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="794" Y="288"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="757" Y="408"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="784" Y="396"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1" Target="S0.S0.Idle.Idle.M3.Idle.Idle.M3.Parado.S2.S0.Idle.Idle.M3.Idle.Idle.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="455" Y="757"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1" Target="S0.S0.Idle.M2.M3.Idle.quebrado.M3.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="446" Y="858"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1" Target="S3.S0.Idle.M2.Idle.Idle.quebrado.Idle.BE1.S3.S2.Idle.M2.Idle.Idle.quebrado.Idle.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="unload_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="375" Y="741"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado" Target="S0.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1.S2.S1.Idle.Idle.M3.Idle.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="645" Y="743"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado" Target="S0.S1.Idle.M2.M3.Idle.M2.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="731" Y="664"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="757" Y="584"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.BE.Parado" Target="S3.S0.Idle.M2.M3.Idle.BE.M3.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="706" Y="692"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2" Target="S0.S1.Idle.M2.M3.Idle.M2.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="840" Y="261"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="781" Y="394"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.BE.quebrado.BE2" Target="S3.S0.Idle.M2.M3.Idle.BE.quebrado.M3">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="831" Y="305"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1" Target="S0.S1.Idle.Idle.M3.Idle.Idle.BE.Parado.S2.S1.Idle.Idle.M3.Idle.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="545" Y="786"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1" Target="S0.S1.Idle.M2.M3.Idle.quebrado.BE.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S3.S1.Idle.M2.M3.Idle.quebrado.BE.BE1" Target="S3.S0.Idle.M2.M3.Idle.quebrado.M3.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m3"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="473" Y="843"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado" Target="S0.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1.S2.S3.Idle.Idle.Idle.M4.quebrado.BE.Idle1">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="378" Y="506"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado" Target="S0.S3.Idle.M2.Idle.M4.M2.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="510" Y="453"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado" Target="S3.S0.Idle.M2.Idle.Idle.BE.quebrado.Idle2.S3.S2.Idle.M2.Idle.Idle.BE.quebrado.Idle2">
+<LabelBlock>
+<SimpleIdentifier Name="broken_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="644" Y="478"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.BE.Parado" Target="S3.S0.Idle.M2.Idle.M4.BE.M4.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="492" Y="438"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2" Target="S0.S3.Idle.M2.Idle.M4.M2.quebrado.BE2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="855" Y="435"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2" Target="S3.S0.Idle.M2.Idle.Idle.BE.Idle.Parado.S3.S2.Idle.M2.Idle.Idle.BE.Idle.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="786" Y="493"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.BE.quebrado.BE2" Target="S3.S0.Idle.M2.Idle.M4.BE.quebrado.M4">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="889" Y="447"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1" Target="S0.S3.Idle.Idle.Idle.M4.Idle.BE.Parado.S2.S3.Idle.Idle.Idle.M4.Idle.BE.Parado">
+<LabelBlock>
+<SimpleIdentifier Name="repair_r1"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="194" Y="509"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1" Target="S0.S3.Idle.M2.Idle.M4.quebrado.BE.M2">
+<LabelBlock>
+<SimpleIdentifier Name="move_m2"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="133" Y="568"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S3.S3.Idle.M2.Idle.M4.quebrado.BE.BE1" Target="S3.S0.Idle.M2.Idle.M4.quebrado.M4.BE1">
+<LabelBlock>
+<SimpleIdentifier Name="move_m4"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="84" Y="519"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+</ComponentList>
+</Module>
