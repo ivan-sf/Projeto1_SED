@@ -7,7 +7,7 @@ Este repositório é referente ao Projeto 01 da disciplina Sistemas a Eventos Di
 ## Equipe
 - Arthur de Queiroz Tavares Borges Mesquita
 - Ivan da Silva Filho
-- Jayne Emilly Silva de Melo
+- Jayne Emilly Silva de Melo (129211548)
 
 ---
 
